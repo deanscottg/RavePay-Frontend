@@ -2,11 +2,12 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import VipUpgrade from './VipUpgrade'
+import { API_URL } from './apiAdapter'
 
 function AccountCard({ account, setUser }) {
   const history = useNavigate()
   function HandleDeleteAccount() {
-    fetch(`/accounts/${account.id}`, {
+    fetch(`${API_URL}/accounts/${account.id}`, {
       method: 'DELETE',
     })
       .then(() => setUser(null))

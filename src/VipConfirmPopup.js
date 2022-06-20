@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { API_URL } from './apiAdapter'
 
 function VipConfirmPopup({ account, trigger, setTrigger }) {
   const history = useNavigate()
@@ -8,7 +9,7 @@ function VipConfirmPopup({ account, trigger, setTrigger }) {
   // const [newVipStatus, setNewVipStatus]=useState("")
   function HandleVipConfirmation(e) {
     e.preventDefault()
-    fetch(`/accounts/${account.id}`, {
+    fetch(`${API_URL}/vipaccounts/${account.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

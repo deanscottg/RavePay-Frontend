@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { API_URL } from './apiAdapter'
 
 function PurchaseConfirmPopup({
   trigger,
@@ -18,7 +19,7 @@ function PurchaseConfirmPopup({
     e.preventDefault()
     console.log(cartTotal, account.ravepay_balance, 'totals')
     console.log(account.id)
-    fetch(`/accounts/${account.id}`, {
+    fetch(`${API_URL}/accounts/${account.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -53,7 +54,7 @@ function PurchaseConfirmPopup({
           'Not sure whats happenning here? A RavePay team member should be able to help!'
         )
       }
-      fetch('/orders', {
+      fetch(`${API_URL}/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

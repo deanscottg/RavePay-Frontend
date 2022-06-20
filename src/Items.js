@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import ItemCard from './ItemCard'
 import ShoppingCart from './ShoppingCart'
 import { BsFillCartPlusFill } from 'react-icons/bs'
+import { API_URL } from './apiAdapter'
 
 function Items({ passCartItems, account }) {
   const [displayItems, setDisplayedItems] = useState([])
   const [cartItems, setCartItems] = useState([])
 
   useEffect(() => {
-    fetch('/items')
+    fetch(`${API_URL}/items`)
       .then((response) => response.json())
       .then(setDisplayedItems)
   }, [])

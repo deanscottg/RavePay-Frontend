@@ -16,6 +16,7 @@ import SuccessfulAccountAdd from './SuccessfulAccountAdd'
 import { useNavigate } from 'react-router-dom'
 
 import './App.css'
+import { API_URL } from './apiAdapter'
 
 function App({ cartItems }) {
   const [renderCartItems, setRenderCartItems] = useState([])
@@ -25,7 +26,7 @@ function App({ cartItems }) {
   }
 
   function onUpdatedBalance() {
-    fetch('/me').then((r) => {
+    fetch(`${API_URL}/me`).then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user))
       }
@@ -34,7 +35,7 @@ function App({ cartItems }) {
 
   useEffect(() => {
     // auto-login
-    fetch('/me').then((r) => {
+    fetch(`${API_URL}/me`).then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user))
       }

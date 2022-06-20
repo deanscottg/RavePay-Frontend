@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { API_URL } from './apiAdapter'
 
 function Signup({ setUser, account }) {
   const current = new Date().toISOString().split('T')[0]
@@ -16,7 +17,7 @@ function Signup({ setUser, account }) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    fetch('/sign-up', {
+    fetch(`${API_URL}/sign-up`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

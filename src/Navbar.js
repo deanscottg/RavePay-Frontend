@@ -1,11 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import NavLink from './NavLink'
+import { API_URL } from './apiAdapter'
 
 function Navbar({ account, setUser }) {
   const history = useNavigate()
   function handleLogOutClick() {
-    fetch('/logout', { method: 'DELETE' }).then((r) => {
+    fetch(`${API_URL}/logout`, { method: 'DELETE' }).then((r) => {
       if (r.ok) {
         setUser(null)
       }

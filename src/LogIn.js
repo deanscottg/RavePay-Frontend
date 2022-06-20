@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { API_URL } from './apiAdapter'
 
 function LogIn({ setUser }) {
   const history = useNavigate()
@@ -7,7 +8,7 @@ function LogIn({ setUser }) {
   const [password, setPassword] = useState('')
   function handleSubmit(e) {
     e.preventDefault()
-    fetch('/login', {
+    fetch(`${API_URL}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

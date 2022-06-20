@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { API_URL } from './apiAdapter'
 
 function SuccessfulAccountAdd({ account, onUpdatedBalance }) {
   const [addValue] = useSearchParams()
   const purchasedAdd = parseInt(addValue.get('amount'))
   // account = true
   useEffect(() => {
-    fetch('/added-funds', {
+    fetch(`${API_URL}/added-funds`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
