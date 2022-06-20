@@ -1,9 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { API_URL } from './apiAdapter'
+
 
 function AccountAddPackMenu({ account }) {
   function HandleAddPackSubmit(id) {
-    fetch('/create-checkout-session', {
+    fetch(`${API_URL}/create-checkout-session`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
